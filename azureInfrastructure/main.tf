@@ -39,5 +39,5 @@ resource azurerm_storage_account "store" {
 resource azurerm_storage_container "blob" {
     name = "content"
     storage_account_name = azurerm_resource_group.store.name
-    container_access_type = 'private"
+    container_access_type = "private"
 }
