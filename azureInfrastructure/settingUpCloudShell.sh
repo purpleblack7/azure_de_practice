@@ -31,13 +31,14 @@ az account set --subscription "<subscription_id_or_subscription_name>"
 az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 
 # Configuring credentials in environment variables
-export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
-export ARM_TENANT_ID="<azure_subscription_tenant_id>"
-export ARM_CLIENT_ID="<service_principal_appid>"
-export ARM_CLIENT_SECRET="<service_principal_password>"
+export ARM_SUBSCRIPTION_ID=$(jq -r '.subscriptionId' mycredentials.json)
+export ARM_TENANT_ID=$(jq -r '.tenantId' mycredentials.json)
+export ARM_CLIENT_ID=$(jq -r '.clientId' mycredentials.json)
+export ARM_CLIENT_SECRET=$(jq -r '.clientSecret' mycredentials.json)
 
 ## Executing the bashrc script
 . ~/.bashrc
 
 ## Verification
 printenv | grep ^ARM*
+
