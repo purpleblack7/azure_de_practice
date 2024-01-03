@@ -43,7 +43,7 @@ resource "azurerm_resource_group" "rg" {
 
 #Create an Azure Storage Account
 resource azurerm_storage_account "store" {
-    name = "de_demo_storage"
+    name = "deDemoStorage"
     resource_group_name = azurerm_resource_group.rg.name
     location = azurerm_resource_group.rg.location
     account_kind = "StorageV2"
