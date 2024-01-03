@@ -36,14 +36,14 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
-    name = "de_demo_rg"
+    name ="de_demo_rg"
     location = "eastus"
 }
 
 
 #Create an Azure Storage Account
 resource azurerm_storage_account "store" {
-    name = "deDemoStorage"
+    name ="deDemoStorage"
     resource_group_name = azurerm_resource_group.rg.name
     location = azurerm_resource_group.rg.location
     account_kind = "StorageV2"
@@ -54,7 +54,7 @@ resource azurerm_storage_account "store" {
 #Create a Blob Container within Storage Account
 
 resource azurerm_storage_container "blob" {
-    name = "content"
+    name ="content"
     storage_account_name = azurerm_resource_group.store.name
     container_access_type = "private"
 }
